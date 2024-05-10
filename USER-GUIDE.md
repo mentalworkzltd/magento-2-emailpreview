@@ -59,7 +59,7 @@ php bin/magento setup:static-content:deploy
 Run the following command in Magento 2 root folder
 
 ```
-composer require mageplaza/module-smtp
+composer require mentalworkz/module-email-preview
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
