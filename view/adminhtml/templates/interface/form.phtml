@@ -1,0 +1,107 @@
+<?php
+/** @var $block \Mentalworkz\EmailPreview\Block\Adminhtml\Form */
+/** @var $viewModel \Mentalworkz\EmailPreview\ViewModel\Email */
+
+$viewModel = $block->getData('viewModel');
+$templateDetails = $viewModel->getEmailTemplateDetails();
+$templateId = ($templateDetails) ? $templateDetails['id'] : null;
+?>
+<h2 class="popup-page-title"><?= __('Email Preview and Send') ?></h2>
+<form id="previewsend_form" method="post" data-mage-init='{"validation":{}}'>
+    <input type="hidden" name="form_key" value="<?= /* @noEscape */
+    $block->getFormKey() ?>"/>
+    <input type="hidden" name="template_id" value="<?= $templateId ?>"/>
+    <input type="hidden" name="template_type" value="custom"/>
+    <fieldset class="fieldset">
+        <?php if(!empty($block->getData('allowSelector'))): ?>
+            <ul class="fields templateFields">
+                <li class="field">
+                    <label><?= __('Email Template') ?>:</label>
+                </li>
+                <li>
+                    <select name="configTemplate" class="select">
+                        <option value=""><?= __('--All Templates--') ?></option>
+                        <?php
+                        $currentGroup = null;
+                        foreach($viewModel->getConfigEmailTemplates() as $template):
+                            if ($currentGroup !== $template['group']) :
+                                if ($currentGroup !== '') :
+                                    echo '</optgroup>';
+                                endif;
+                                echo '<optgroup label="'.ucfirst($template['group']).'">';
+                            endif;
+                            ?>
+                            <option value="<?= $template['value'] ?>"><?= (string)$template['label'] ?></option>
+                            <?php
+                            $currentGroup = $template['group'];
+                        endforeach;
+                        if ($currentGroup !== '') :
+                            echo '</optgroup>';
+                        endif;
+                        ?>
+                    </select>
+                </li>
+                <li><span class="spacer"> <?= __('or') ?> </span></li>
+                <li>
+                    <select name="customTemplate" class="select">
+                        <option value=""><?= __('--Overridden Templates--') ?></option>
+                        <?php foreach($viewModel->getCustomEmailTemplates() as $template):
+                            $selected = ($templateId === $template->getTemplateId()) ? 'selected="selected"' : '';
+                            ?>
+                            <option <?= $selected ?> value="<?= $template->getTemplateId() ?>"><?= $template->getTemplateCode() ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </li>
+            </ul>
+        <?php endif; ?>
+
+        <ul class="fields">
+            <li class="field">
+                <label><?= __('Template Data') ?>:</label>
+            </li>
+            <li class="field">
+                <select name="store_id" class="select">
+                    <?php
+                    $selected = 'selected="selected"';
+                    foreach ($viewModel->getStores() as $store):
+                        if (!$store->getId()):
+                            continue;
+                        endif;
+                        ?>
+                        <option value="<?= $store->getId() ?>" <?= $selected ?>><?= $store->getName() ?></option>
+                    <?php
+                        $selected = '';
+                    endforeach; ?>
+                </select>
+            </li>
+            <li class="field">
+                <select name="entity_type" class="select">
+                    <option value=""><?= __('-- Select Entity--') ?></option>
+                    <?php foreach ($viewModel::ENTITIES as $entity): ?>
+                        <option value="<?= $entity ?>"><?= ucfirst($entity) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </li>
+            <li class="field">
+                <input type="text" name="entity_id" class="input_text" value=""
+                       placeholder="<?= __('Enter Increment ID') ?>"/>
+            </li>
+        </ul>
+        <ul class="fields">
+            <li class="field">
+                <label><?= __('Send copy to') ?>:</label>
+            </li>
+            <li class="field email">
+                <input type="text" name="email_address" class="input_text" value=""
+                       placeholder="<?= __('Email Addresses, comma delimited') ?>"/>
+            </li>
+        </ul>
+        <ul class="fields">
+            <li class="actions">
+                <button id="sendtest" name="sendtest">
+                    <?= __('Preview/Send') ?>
+                </button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

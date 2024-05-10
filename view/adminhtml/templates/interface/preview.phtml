@@ -1,0 +1,60 @@
+<?php
+/** @var $block \Mentalworkz\EmailPreview\Block\Adminhtml\Preview  */
+/** @var $viewModel \Mentalworkz\EmailPreview\ViewModel\Email */
+
+$viewModel = $block->getData('viewModel');
+$templateDetails = $viewModel->getEmailTemplateDetails();
+$templateId = ($templateDetails) ? $templateDetails['id'] : null;
+
+$responsiveDimensions = $block->getResponsiveDimensions();
+?>
+<div id="email-template-preview-modal">
+    <div class="modal-top-content">
+        <h2><?= __('Email Preview') ?></h2>
+        <div class="template-details">
+            <ul>
+                <li><label><?= __('ID') ?></label><span class="template_id"><?= ($templateId) ? $templateId : '-' ?></span></li>
+                <li><label><?= __('Code') ?></label><span class="template_code"><?= ($templateDetails) ? $templateDetails['code'] : '-' ?></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-content">
+        <div id="preview_toolbar" data-bind='mageInit: {"Mentalworkz_EmailPreview/js/previewToolbar": {}}'>
+            <ul>
+                <li>
+                    <select name="responsive">
+                        <option value="">Responsive</option>
+                        <?php foreach($responsiveDimensions as $rd): ?>
+                        <option value="<?= $rd['value'] ?>"><?= $rd['label'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </li>
+                <li class="sizes">
+                    <span><?= __('W:') ?> <input type="text" name="width" value="1440" /></span>
+                    <span class="seperator">X</span>
+                    <span><?= __('H:') ?> <input type="text" name="height" value="800" /></span>
+                </li>
+                <li>
+                    <a href="#/" class="orientation" title="orientation">
+                        <img src="<?= $block->getViewFileUrl('Mentalworkz_EmailPreview::images/portrait.png') ?>" alt="orientation" class="portrait" />
+                        <img style="display: none;" src="<?= $block->getViewFileUrl('Mentalworkz_EmailPreview::images/landscape.png') ?>" alt="orientation" class="landscape" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="iframe-wrapper">
+            <div id="iframeResizer">
+                <iframe name="preview_iframe"
+                        id="preview_iframe"
+                        frameborder="0"
+                        title="<?= $block->escapeHtmlAttr(__('Email Preview')) ?>"
+                        width="100%"
+                        height="100%"
+                        scrolling="no"
+                        style="pointer-events: none"
+                >
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>

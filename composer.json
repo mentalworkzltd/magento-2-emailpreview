@@ -1,0 +1,24 @@
+{
+  "name": "mentalworkz/module-email-preview",
+  "description": "Mentalworkz Email Preview Extension",
+  "require": {},
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mentalworkz",
+      "email": "mentalworkzltd@gmail.com",
+      "homepage": "https://www.mentalworkz.co.uk",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Mentalworkz\\EmailPreview\\": ""
+    }
+  }
+}

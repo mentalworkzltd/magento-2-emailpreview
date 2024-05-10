@@ -1,0 +1,262 @@
+.adminhtml-email_template-edit .page-actions-buttons button#preview {
+    display:none;
+}
+
+.message-wrapper {
+    p {
+        color: #FFFFFF;
+        padding: 5px 10px;
+        text-align: center;
+
+        span {
+            display: block;
+            padding-left: 20px;
+        }
+
+        &.success {
+            background: #00e676;
+            border: 1px solid #00aa00;
+            span {
+                display: inline-flex;
+                align-items: center;
+
+                &:before {
+                    content: url('../Mentalworkz_EmailPreview/images/svg/success.svg');
+                    width: 16px;
+                    height: 16px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &.error {
+            background: #FF7F7f;
+            border:1px solid #990000;
+            span {
+                display: inline-block;
+                &:before {
+                    content: url('../Mentalworkz_EmailPreview/images/svg/error.svg');
+                    width: 16px;
+                    height: 16px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+h2.popup-page-title {
+    display: none;
+}
+.mwzemail-email-popup h2.popup-page-title {
+    display: block;
+}
+
+#templateSelector {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+
+    ul {
+        list-style: none;
+        margin-bottom: 0;
+
+        ul li {
+            label, select {
+                margin-right: 20px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+        }
+    }
+}
+#email-template-send-test-modal {
+    background: #FFFFFF;
+    padding: 15px;
+
+    .fieldset {
+        border: 0;
+        display: inline-block;
+        margin-left: 0;
+
+        .fields {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+
+            &.templateFields {
+                .spacer {
+                    display: inline-block;
+                    padding: 0 5px;
+                }
+            }
+            label {
+                font-weight: bold;
+            }
+        }
+        .field {
+            margin-right: 20px;
+
+            &.error {
+                label {
+                    color: #990000;
+                }
+                input {
+                    border: 1px solid #990000;
+                }
+            }
+
+            &.email input {
+                width: 355px;
+            }
+
+            label {
+                display: inline-block;
+                width: 120px;
+            }
+
+            input,
+            select {
+                width: 167px;
+            }
+
+            input,
+            select,
+            button {
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+
+        }
+    }
+}
+
+#email-template-preview-modal {
+    border-top: 1px solid #CCC;
+    padding-top: 20px;
+
+    .modal-top-content {
+        border-bottom: 1px solid #ccc;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        .template-details {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+
+            ul {
+                display: inline-flex;
+                flex-direction: row;
+                list-style: none;
+                margin-bottom: 0;
+
+                li {
+                    margin: 0 20px 0 0;
+                    h3 {
+                        margin-bottom:0;
+                    }
+                    label {
+                        font-weight: 700;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .modal-content {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #preview_toolbar {
+        background: #efefef;
+        text-align: center;
+
+        ul {
+            align-items: center;
+            display: inline-flex;
+            gap: 20px;
+            flex-direction: row;
+            list-style: none;
+            margin: 5px auto;
+
+            .sizes {
+                align-items: center;
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                justify-content: center;
+
+                input {
+                    width: 65px;
+                }
+            }
+            .orientation {
+                display: inline-flex;
+                align-items: center;
+                width: 30px;
+
+                img {
+                    height: 25px;
+                }
+            }
+        }
+    }
+
+    .iframe-wrapper {
+        background: #EFEFEF;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    #preview_iframe {
+        margin: 0 auto;
+    }
+
+    #iframeResizer {
+        border: 1px solid #ccc;
+        background: #FFFFFF;
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: scroll;
+        padding-right: 25px;
+
+        .ui-resizable-handle.ui-resizable-e {
+            background-color: #efefef;
+            background-image: url('../Mentalworkz_EmailPreview/images/svg/resize-icon2.svg');
+            background-size: 20px;
+            height: 100%;
+            width: 20px;
+            margin-right: 5px;
+
+            &:before {
+                content: url('../Mentalworkz_EmailPreview/images/svg/resize-icon.svg');
+                top: 5%;
+                width: 20px;
+                position: absolute;
+                margin-left: -10px;
+            }
+
+            &:after {
+                content: url('../Mentalworkz_EmailPreview/images/svg/resize-icon.svg');
+                top: 50%;
+                width: 20px;
+                position: absolute;
+                margin-left: -10px;
+            }
+        }
+    }
+}

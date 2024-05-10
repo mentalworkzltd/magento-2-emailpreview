@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="before.body.end">
+        <block class="Magento\Backend\Block\Template" name="mwz_email_arrayfield_sortable" template="Mentalworkz_EmailPreview::system/config/sortableField.phtml" />
+    </referenceBlock>
+</page>

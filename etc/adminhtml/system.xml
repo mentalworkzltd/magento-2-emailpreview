@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mwz_modules" translate="label" class="mwz_modules" sortOrder="100">
+            <label>Mentalworkz Modules</label>
+        </tab>
+        <section id="mwz_emailpreview" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Email Preview</label>
+            <tab>mwz_modules</tab>
+            <resource>Mentalworkz_EmailPreview::config_previewsend</resource>
+
+                <group id="information" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Information</label>
+                    <field id="information" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label></label>
+                        <frontend_model>Mentalworkz\EmailPreview\Block\Adminhtml\System\Config\Form\Field\HtmlInfo</frontend_model>
+                    </field>
+                </group>
+                <group id="preview_send" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Preview and Send</label>
+                    <field id="isenabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <group id="preview_device" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Preview Device List</label>
+                        <field id="preview_device_sizes" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Preview Device List</label>
+                            <frontend_model>Mentalworkz\EmailPreview\Block\Adminhtml\System\Config\Form\Field\DeviceSizeMap</frontend_model>
+                            <backend_model>Mentalworkz\EmailPreview\Model\Config\Backend\Serialized\DeviceSizeMap</backend_model>
+                            <depends>
+                                <field id="mwz_email/email_features/preview_send/isenabled">1</field>
+                            </depends>
+                        </field>
+                    </group>
+                </group>
+
+        </section>
+    </system>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mwz_emailpreview>
+            <preview_send>
+                <isenabled>1</isenabled>
+                <preview_device>
+                    <preview_device_sizes>{"_1715081876592_592":{"enabled":"1","label":"Desktop","width":"1440","height":"800"},"_1710750298698_698":{"enabled":"1","label":"IPAD","width":"810","height":"1080"},"_1710750193398_398":{"enabled":"1","label":"Galaxy Note 20","width":"412","height":"915"},"_1710750293979_979":{"enabled":"1","label":"Galaxy Note 20 Ultra","width":"412","height":"883"},"_1710750294730_730":{"enabled":"1","label":"Galaxy S10\/S10+","width":"360","height":"760"},"_1710750295339_339":{"enabled":"1","label":"Galaxy S20","width":"360","height":"800"},"_1710750297467_467":{"enabled":"1","label":"Galaxy S20 Ultra","width":"412","height":"915"},"_1710750298043_43":{"enabled":"1","label":"Galaxy S20+","width":"384","height":"854"},"_1710750299755_755":{"enabled":"1","label":"iPhone 11 Pro","width":"375","height":"812"},"_1710750300979_979":{"enabled":"1","label":"iPhone 11 Pro Max","width":"414","height":"896"},"_1710750301635_635":{"enabled":"1","label":"iPhone 12\/13 + Pro","width":"390","height":"844"},"_1710750302339_339":{"enabled":"1","label":"iPhone 12\/13 mini","width":"375","height":"812"},"_1710750302955_955":{"enabled":"1","label":"iPhone 12\/13 Pro Max","width":"428","height":"926"},"_1710750303482_482":{"enabled":"1","label":"iPhone SE 2nd gen","width":"375","height":"667"},"_1710750304011_11":{"enabled":"1","label":"Kindle Fire HDX","width":"800","height":"1280"}}</preview_device_sizes>
+                </preview_device>
+            </preview_send>
+        </mwz_emailpreview>
+    </default>
+</config>
+

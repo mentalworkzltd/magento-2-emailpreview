@@ -1,0 +1,10 @@
+<?php
+/** @var $block \Mentalworkz\EmailPreview\Block\Adminhtml\InterfaceWrapper  */
+$templateId = $block->getRequest()->getParam('id', null);
+?>
+<div id="email-template-send-test-modal" data-bind='mageInit: {"Mentalworkz_EmailPreview/js/emailPreviewSend": {"ajax_url": "<?= $block->escapeUrl($block->getUrl('*/email/process')) ?>", "template_id": "<?= $templateId ?>"}}'>
+    <div class="message-wrapper" style="display:none;"></div>
+    <?= $block->getChildHtml('mwz.previewsend.template.selector') ?>
+    <?= $block->getChildHtml('mwz.previewsend.form') ?>
+</div>
+<?= $block->getChildHtml('mwz.previewsend.preview') ?>
