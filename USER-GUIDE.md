@@ -46,7 +46,7 @@ For option 3, the Email Preview section will be loaded as a popup (so you are no
 
 #### Method 1: Install ready-to-paste package
 
-Copy the module files to your site root **app/code** directory, then run the following commands:
+Copy the module files to your site root **app/code/Mentalworkz/EmailPreview** directory, then run the following commands:
 
 ```
 php bin/magento setup:upgrade
