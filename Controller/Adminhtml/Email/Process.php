@@ -22,7 +22,7 @@ use Magento\Email\Model\ResourceModel\Template as TemplateResource;
 use Magento\Email\Model\Template\Config as EmailConfig;
 use Magento\Email\Model\BackendTemplate;
 use Magento\Framework\Filter\Input\MaliciousCode;
-use Zend\Mail\Message as ZendMessage;
+use Laminas\Mail\Message as ZendMessage;
 use Magento\Framework\Serialize\Serializer\Json;
 use Mentalworkz\EmailPreview\Logger\Logger as MwzLogger;
 use Magento\Framework\Escaper;
