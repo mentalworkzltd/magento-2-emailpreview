@@ -32,6 +32,11 @@ class Invoice extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTempl
 
         $store = $storeId ? $this->storeManagerInterface->getStore($storeId) : $order->getStore();
 
+	// May be virtual product
+        $shippingAddress = ($order->getShippingAddress()) ?
+            $this->addressRenderer->format($order->getShippingAddress(), 'html') :
+            null;
+
         return [
             'order' => $order,
             'order_id' => $order->getId(),
@@ -41,7 +46,7 @@ class Invoice extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTempl
             'billing' => $order->getBillingAddress(),
             'payment_html' => $this->getPaymentHtml($order),
             'store' => $store,
-            'formattedShippingAddress' => $this->getFormattedShippingAddress($order),
+            'formattedShippingAddress' => shippingAddress,
             'formattedBillingAddress' => $this->getFormattedBillingAddress($order),
             'order_data' => [
                 'customer_name' => $order->getCustomerName(),

@@ -23,6 +23,11 @@ class Order extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTemplat
     public function prepareTemplateData($order, $storeId = null): array
     {
         $store = $storeId ? $this->storeManagerInterface->getStore($storeId) : $order->getStore();
+	
+	// May be virtual product
+        $shippingAddress = ($order->getShippingAddress()) ?
+            $this->addressRenderer->format($order->getShippingAddress(), 'html') :
+            null;
 
         return [
             'order' => $order,
@@ -30,7 +35,7 @@ class Order extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTemplat
             'billing' => $order->getBillingAddress(),
             'payment_html' => $this->getPaymentHtml($order),
             'store' => $store,
-            'formattedShippingAddress' => $this->getFormattedShippingAddress($order),
+            'formattedShippingAddress' => shippingAddress,
             'formattedBillingAddress' => $this->getFormattedBillingAddress($order),
             'created_at_formatted' => $order->getCreatedAtFormatted(2),
             'order_data' => [
