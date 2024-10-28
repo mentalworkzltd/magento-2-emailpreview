@@ -25,6 +25,11 @@ class Email implements \Magento\Framework\View\Element\Block\ArgumentInterface
     public const ENTITIES = ['order', 'invoice', 'shipment', 'creditmemo', 'customer'];
 
     /**
+     * @var Http
+     */
+    protected $request;
+    
+    /**
      * @var TemplateFactory
      */
     protected $emailFactory;
