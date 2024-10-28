@@ -44,7 +44,7 @@ class Shipment extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTemp
             'billing' => $order->getBillingAddress(),
             'payment_html' => $this->getPaymentHtml($order),
             'store' => $store,
-            'formattedShippingAddress' => shippingAddress,
+            'formattedShippingAddress' => $shippingAddress,
             'formattedBillingAddress' => $this->getFormattedBillingAddress($order),
             'order_data' => [
                 'customer_name' => $order->getCustomerName(),
