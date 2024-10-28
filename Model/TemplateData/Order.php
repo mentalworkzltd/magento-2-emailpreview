@@ -35,7 +35,7 @@ class Order extends \Mentalworkz\EmailPreview\Model\TemplateData\AbstractTemplat
             'billing' => $order->getBillingAddress(),
             'payment_html' => $this->getPaymentHtml($order),
             'store' => $store,
-            'formattedShippingAddress' => shippingAddress,
+            'formattedShippingAddress' => $shippingAddress,
             'formattedBillingAddress' => $this->getFormattedBillingAddress($order),
             'created_at_formatted' => $order->getCreatedAtFormatted(2),
             'order_data' => [
